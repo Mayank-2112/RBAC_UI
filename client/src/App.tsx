@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button"
+import Navbar from "./components/Navbar"
 
 export default function App() {
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <>
+      <Navbar />
+    </>
   )
 }
