@@ -117,16 +117,16 @@ const DashboardContent = () => {
         <DashboardCard heading="Ongoing Projects" count="5" icon={AiFillProject} lastMonth="4" />
       </div>
       <div className="flex gap-8 px-8">
-        <div className="w-3/5 border-2 p-5 rounded-xl flex flex-col gap-10">
+        <div className="w-3/5 border-2 p-5 rounded-xl flex flex-col gap-10 h-fit">
           <Table>
             <TableCaption className="text-blue-600 text-xl">A list of your recent users.</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="text-xl text-black">User ID</TableHead>
-                <TableHead className="text-xl text-black">Name</TableHead>
-                <TableHead className="text-xl text-black">Mail ID</TableHead>
-                <TableHead className="text-xl text-black">Role</TableHead>
-                <TableHead className="text-xl text-black">Status</TableHead>
+                <TableHead className="text-lg text-black">User ID</TableHead>
+                <TableHead className="text-lg text-black">Name</TableHead>
+                <TableHead className="text-lg text-black">Mail ID</TableHead>
+                <TableHead className="text-lg text-black">Role</TableHead>
+                <TableHead className="text-lg text-black">Status</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -157,7 +157,7 @@ const DashboardContent = () => {
 
 
         </div>
-        <div className="w-2/5 border-2 p-5 rounded-xl flex flex-col gap-10">
+        <div className="w-2/5 border-2 p-5 rounded-xl flex flex-col gap-10 h-fit">
           <Table>
             <TableCaption className="text-blue-600 text-xl">A list of your recent projects.</TableCaption>
             <TableHeader>
