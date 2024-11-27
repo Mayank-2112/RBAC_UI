@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/table"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "./ui/button"
+import CustomAlertDialog from "./CustomAlertDialog"
 
 const users = [
   {
@@ -126,10 +127,10 @@ const Managers = () => {
               <TableCell className="">{user.role}</TableCell>
               <TableCell className={`${user.status === 'active' ? 'text-green-600' : 'text-red-600'}`}>{user.status}</TableCell>
               <TableCell>
-                <Button className="bg-green-600">Edit</Button>
+                <CustomAlertDialog buttonType="edit" content="Manager" trigger={<Button className="bg-green-600 hover:bg-green-500">Edit</Button>}/>
               </TableCell>
               <TableCell>
-                <Button variant='destructive'>Delete</Button>
+                <CustomAlertDialog buttonType="delete" content="Project" trigger={<Button variant='destructive'>Delete</Button>}/>
               </TableCell>
             </TableRow>
           ))}

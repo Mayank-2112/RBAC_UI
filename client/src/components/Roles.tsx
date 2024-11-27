@@ -8,7 +8,18 @@ import {
 } from "@/components/ui/table";
 import { Button } from "./ui/button";
 import { FaPlus } from "react-icons/fa6";
-
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Input } from './ui/input';
 const roles = [
   {
     'role_id': 'RID001',
@@ -55,7 +66,29 @@ const Roles = () => {
           ))}
         </TableBody>
       </Table>
-      <Button className="w-fit"><FaPlus />Add New Role</Button>
+      <AlertDialog>
+        <AlertDialogTrigger>
+        <Button className="w-fit"><FaPlus />Add New Role</Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className='text-2xl'>Role</AlertDialogTitle>
+            <AlertDialogDescription>
+              <p className='mb-5 text-xl'>Enter new role name carefully</p>
+              <form className='mb-10'>
+                <div className='flex flex-col gap-8 '>
+                  <Input type='text' placeholder='New Role' id='role_name' className='border-blue-600' />
+                </div>
+              </form>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Submit</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      
     </div>
   )
 }

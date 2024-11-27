@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "./ui/button";
+import CustomAlertDialog from "./CustomAlertDialog";
 
 const projects = [
   {
@@ -117,10 +118,10 @@ const Projects = () => {
               <TableCell className={`${project.status === 'completed' ? 'text-red-600' : 'text-green-600'}`}>{project.status}</TableCell>
               <TableCell className="">{project.team_count}</TableCell>
               <TableCell>
-                <Button className="bg-green-600">Edit</Button>
+                <CustomAlertDialog buttonType="edit" content="Project" trigger={<Button className="bg-green-600 hover:bg-green-500">Edit</Button>}/>
               </TableCell>
               <TableCell>
-                <Button variant='destructive'>Delete</Button>
+                <CustomAlertDialog buttonType="delete" content="Project" trigger={<Button variant='destructive'>Delete</Button>}/>
               </TableCell>
             </TableRow>
           ))}
