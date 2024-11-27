@@ -11,6 +11,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
+import { IoIosArrowDown } from "react-icons/io";
 const users = [
   {
     "user_id": "UID001",
@@ -107,7 +117,7 @@ const DashboardContent = () => {
         <DashboardCard heading="Ongoing Projects" count="5" icon={AiFillProject} lastMonth="4" />
       </div>
       <div className="flex gap-8 px-8">
-        <div className="w-2/3 border-2 p-5 rounded-xl">
+        <div className="w-3/5 border-2 p-5 rounded-xl flex flex-col gap-10">
           <Table>
             <TableCaption className="text-blue-600 text-xl">A list of your recent users.</TableCaption>
             <TableHeader>
@@ -131,9 +141,23 @@ const DashboardContent = () => {
               ))}
             </TableBody>
           </Table>
+          <Button variant='outline' className="self-center border border-blue-600">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-2"><span>View All</span><IoIosArrowDown /> </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <Link to='/dashboard?tab=employees'>Employee Records</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link to='/dashboard?tab=managers'>Manager Records</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </Button>
+
 
         </div>
-        <div className="w-1/3 border-2 p-5 rounded-xl">
+        <div className="w-2/5 border-2 p-5 rounded-xl flex flex-col gap-10">
           <Table>
             <TableCaption className="text-blue-600 text-xl">A list of your recent projects.</TableCaption>
             <TableHeader>
@@ -155,6 +179,9 @@ const DashboardContent = () => {
               ))}
             </TableBody>
           </Table>
+          <Link to='/dashboard?tab=projects' className="flex justify-center">
+            <Button variant='secondary' className="border border-blue-600 w-1/5 item-center">View All</Button>
+          </Link>
 
         </div>
       </div>

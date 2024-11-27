@@ -48,7 +48,7 @@ const DashSidebar = () => {
           ))}
         </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>
-          <Link to={`/signOut`} className='text-lg flex items-start p-3 w-full'>
+          <Link to={`/`} className='text-lg flex items-start p-3 w-full'>
           <Sidebar.Item icon={FaSignOutAlt} as="div"> LogOut
 
               </Sidebar.Item>

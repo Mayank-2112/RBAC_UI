@@ -2,6 +2,7 @@ import DashboardContent from '@/components/DashboardContent';
 import DashSidebar from '@/components/DashSidebar';
 import Employees from '@/components/Employees';
 import Managers from '@/components/Managers';
+import Navbar from '@/components/Navbar';
 import Profile from '@/components/Profile';
 import Projects from '@/components/Projects';
 import Roles from '@/components/Roles';
@@ -21,7 +22,11 @@ export default function Dashboard() {
     }
   },[location.search]);
   return (
-    <div className='max-h-screen flex flex-col md:flex-row'>
+    <div className='max-h-screen flex flex-col'>
+        <Navbar/>
+        <div className='flex'>
+
+        
         <DashSidebar/>
         { tab === 'dash' &&  <DashboardContent/>}
         { tab === 'profile' &&  <Profile/>}
@@ -30,6 +35,7 @@ export default function Dashboard() {
         { tab === 'projects' && <Projects/>}
         { tab === 'roles' && <Roles/>}
         { tab === 'permissions' && <SetPermissions/>}
+        </div>
     </div>
   )
 }
