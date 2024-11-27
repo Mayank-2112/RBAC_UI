@@ -1,3 +1,4 @@
+import DashboardContent from '@/components/DashboardContent';
 import DashSidebar from '@/components/DashSidebar';
 import Employees from '@/components/Employees';
 import Managers from '@/components/Managers';
@@ -22,6 +23,7 @@ export default function Dashboard() {
   return (
     <div className='max-h-screen flex flex-col md:flex-row'>
         <DashSidebar/>
+        { tab === 'dash' &&  <DashboardContent/>}
         { tab === 'profile' &&  <Profile/>}
         { tab === 'employees' &&  <Employees/>}
         { tab === 'managers' &&  <Managers/>}

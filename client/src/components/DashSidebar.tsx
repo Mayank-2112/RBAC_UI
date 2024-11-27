@@ -7,6 +7,7 @@ import { GrUserManager } from 'react-icons/gr';
 import { AiFillProject } from 'react-icons/ai';
 import { BiSolidUserBadge } from 'react-icons/bi';
 import { FcRules } from 'react-icons/fc';
+import { FaSignOutAlt } from "react-icons/fa";
 
 const DashSidebar = () => {
   const location = useLocation();
@@ -26,18 +27,18 @@ const DashSidebar = () => {
     { tabName: 'managers', label: 'Manager Records', icon: GrUserManager },
     { tabName: 'projects', label: 'Projects', icon: AiFillProject },
     { tabName: 'roles', label: 'Roles', icon: BiSolidUserBadge },
-    { tabName: 'permission', label: 'Set Permissions', icon: FcRules },
+    { tabName: 'permissions', label: 'Set Permissions', icon: FcRules },
   ]
   return (
-    <Sidebar className="w-1/5 hidden md:block max-h-screen border-r-4">
+    <Sidebar className="w-1/5 hidden md:block min-h-screen border-r-4">
       <Sidebar.Items>
-        <Sidebar.ItemGroup className="flex flex-col gap-1 items-start text-xl">
+        <Sidebar.ItemGroup className="flex flex-col gap-1 items-start text-lg">
           {tabs.map(({ tabName, label, icon, badge }) => (
             <Link
               key={tabName}
               to={`/dashboard?tab=${tabName}`}
               className={`w-full items-start flex rounded-lg p-3 ${
-                tab === tabName ? 'bg-blue-600 text-white' : 'bg-none'
+                tab === tabName ? 'bg-blue-600 text-white' : 'bg-none border-none'
               }`}
             >
               <Sidebar.Item active={tab === tabName} icon={icon} as="div">
@@ -45,6 +46,13 @@ const DashSidebar = () => {
               </Sidebar.Item>
             </Link>
           ))}
+        </Sidebar.ItemGroup>
+        <Sidebar.ItemGroup>
+          <Link to={`/signOut`} className='text-lg flex items-start p-3 w-full'>
+          <Sidebar.Item icon={FaSignOutAlt} as="div"> LogOut
+
+              </Sidebar.Item>
+          </Link>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
